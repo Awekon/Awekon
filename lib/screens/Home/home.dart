@@ -1,3 +1,4 @@
+import 'package:awekon/assets/fonts/font_size.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -21,14 +22,24 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        title: const Text("Home"),
+        title: const Text(
+            "Home",
+          style: TextStyle(
+            fontSize: fontSize.medium
+          ),
+        ),
         titleTextStyle: const TextStyle(color: Colors.black),
       ),
       body: const Column(
         children: [
           Center(
-            child: Text("Home"),
-          )
+            child: Text(
+              "Home",
+            style: TextStyle(
+              fontSize: fontSize.large
+            ),
+              ),
+            ),
         ],
       ),
     );
