@@ -9,7 +9,7 @@ class Loading extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black54,
       body: Center(
-        child: Lottie.asset("assets/animations/loader.json"),
+        child: Lottie.asset("assets/animations/loading_animation.json"),
       ),
     );
   }
