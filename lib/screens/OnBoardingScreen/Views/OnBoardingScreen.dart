@@ -1,3 +1,4 @@
+import 'package:awekon/screens/Home/Views/home.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -8,7 +9,10 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  navigate() {}
+  navigate() {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => const Home()));
+  }
 
   @override
   Widget build(BuildContext context) {
