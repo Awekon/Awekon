@@ -1,5 +1,5 @@
 import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
-import 'package:awekon/utils/constants/font_size.dart';
+import 'package:awekon/core/constants/font_size.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
 
     try {
       // Simulate an API call with a delay
-      await Future.delayed(const Duration(seconds: 5));
+      await Future.delayed(const Duration(seconds: 3));
 
       // Perform your actual API call here
       // final response = await yourApiCall();
@@ -48,12 +48,7 @@ class _HomeState extends State<Home> {
         leading: Padding(
           padding: const EdgeInsets.all(5.0),
           child: IconButton(
-            icon: const CircleAvatar(
-              radius: 25,
-              backgroundImage: NetworkImage(
-                'https://source.unsplash.com/50x50/?portrait',
-              ),
-            ),
+            icon: Icon("assets/icons/Awekon_shadow_icon.png" as IconData?),
             onPressed: profileIconPressed,
           ),
         ),
