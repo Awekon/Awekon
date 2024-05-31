@@ -23,7 +23,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 onPressed: navigate,
                 child: const Text(
                   "skip",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'primaryFont',
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               )),
         ],
