@@ -1,4 +1,4 @@
-import 'package:awekon/components/ui_components/Loading/Loading.dart';
+import 'package:awekon/components/ui_components/Loading/Views/Loading.dart';
 import 'package:flutter/material.dart';
 
 class LoadingManager {

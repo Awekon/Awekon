@@ -1,7 +1,7 @@
-import 'package:awekon/components/ui_components/Loading/loading_manager.dart';
+import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
+import 'package:awekon/utils/constants/font_size.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:awekon/constants/font_size.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

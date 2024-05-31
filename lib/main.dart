@@ -1,4 +1,4 @@
-import 'package:awekon/screens/Home/home.dart';
+import 'package:awekon/screens/Home/Views/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
