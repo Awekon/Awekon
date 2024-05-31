@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
         leading: Padding(
           padding: const EdgeInsets.all(5.0),
           child: IconButton(
-            icon: Icon("assets/icons/Awekon_shadow_icon.png" as IconData?),
+            icon: Image.asset("assets/icons/Awekon_shadow_icon.png"),
             onPressed: profileIconPressed,
           ),
         ),
