@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.only(left: 5.0),
           child: IconButton(
             icon: Image.asset("assets/icons/Awekon_shadow_icon.png"),
             onPressed: profileIconPressed,
