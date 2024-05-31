@@ -1,20 +1,36 @@
-import 'package:awekon/screens/OnBoardingScreen/Views/components/body.dart';
 import 'package:flutter/material.dart';
 
-class OnBoardingscreen extends StatefulWidget {
-  const OnBoardingscreen({super.key});
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({super.key});
 
   @override
-  State<OnBoardingscreen> createState() => _OnBoardingscreenState();
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
 
-class _OnBoardingscreenState extends State<OnBoardingscreen> {
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  navigate() {}
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Body(),
+    return Scaffold(
+      backgroundColor: Colors.black54,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        actions: [
+          Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: TextButton(
+                onPressed: navigate,
+                child: const Text(
+                  "skip",
+                  style: TextStyle(color: Colors.white),
+                ),
+              )),
+        ],
+      ),
+      body: const Column(
+        children: [Text("")],
+      ),
     );
   }
 }
-
-
