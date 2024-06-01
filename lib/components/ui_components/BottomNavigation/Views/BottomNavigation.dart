@@ -37,8 +37,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
         title: Text(
           widget.items[_selectedIndex].label,
-          style:
-              const TextStyle(fontSize: FontSize.medium, color: Colors.black),
+          style: const TextStyle(fontSize: FontSize.medium),
         ),
       ),
       body: widget.items[_selectedIndex].screen,
