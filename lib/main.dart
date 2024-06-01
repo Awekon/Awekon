@@ -1,5 +1,6 @@
 import 'package:awekon/core/constants/size_config.dart';
 import 'package:awekon/screens/SlashScreen/Veiws/splashScreen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,8 +12,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    SizeConfig mainSize = SizeConfig(context);
 
+    if (kDebugMode) {
+      print("container: ${mainSize.blockSizeVertical}");
+    }
     return const MaterialApp(
         debugShowCheckedModeBanner: false, home: splashScreen());
   }

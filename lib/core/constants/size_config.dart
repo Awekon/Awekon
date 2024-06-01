@@ -1,19 +1,19 @@
 import 'package:flutter/widgets.dart';
 
 class SizeConfig {
-  static late double screenWidth;
-  static late double screenHeight;
-  static late double blockSizeHorizontal;
-  static late double blockSizeVertical;
+  late double screenWidth;
+  late double screenHeight;
+  late double blockSizeHorizontal;
+  late double blockSizeVertical;
 
-  static late double textMultiplier;
-  static late double imageSizeMultiplier;
-  static late double heightMultiplier;
+  late double textMultiplier;
+  late double imageSizeMultiplier;
+  late double heightMultiplier;
 
-  static bool isPortrait = true;
-  static bool isMobilePortrait = false;
+  bool isPortrait = true;
+  bool isMobilePortrait = false;
 
-  void init(BuildContext context) {
+  SizeConfig(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
     screenHeight = MediaQuery.of(context).size.height;
 
@@ -27,4 +27,10 @@ class SizeConfig {
     imageSizeMultiplier = blockSizeHorizontal;
     heightMultiplier = blockSizeVertical;
   }
+}
+
+Size getWidgetSize(BuildContext context, GlobalKey key) {
+  final RenderBox renderBox =
+      key.currentContext!.findRenderObject() as RenderBox;
+  return renderBox.size;
 }

@@ -1,4 +1,5 @@
-import 'package:awekon/screens/Home/Views/home.dart';
+import 'package:awekon/components/ui_components/BottomNavigation/Views/BottomNavigation.dart';
+import 'package:awekon/core/constants/BottomNavigationItems.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -11,7 +12,10 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   navigate() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Home()));
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                BottomNavigation(items: bottomNavigationItems)));
   }
 
   @override

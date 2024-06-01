@@ -44,19 +44,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 5.0),
-          child: IconButton(
-            icon: Image.asset("assets/icons/Awekon_shadow_icon.png"),
-            onPressed: profileIconPressed,
-          ),
-        ),
-        title: const Text(
-          "Home",
-          style: TextStyle(fontSize: FontSize.medium, color: Colors.black),
-        ),
-      ),
       body: Column(
         children: [
           const Center(
