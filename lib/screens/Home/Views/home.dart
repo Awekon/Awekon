@@ -54,9 +54,8 @@ class _HomeState extends State<Home> {
         ),
         title: const Text(
           "Home",
-          style: TextStyle(fontSize: FontSize.medium),
+          style: TextStyle(fontSize: FontSize.medium, color: Colors.black),
         ),
-        titleTextStyle: const TextStyle(color: Colors.black),
       ),
       body: Column(
         children: [
