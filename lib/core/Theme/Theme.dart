@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 class AppThemes {
+  static Color PRIMARY_COLOR = const Color(0xFF1A77BA);
+  // static Color ACCENT_COLOR = const Color();
+  static Color PRIMARY_COLOR_DARK = const Color(0xFF024F70);
+  // static Color ACCENT_COLOR_DARK = const Color();
   static ThemeData lightTheme = ThemeData(
-    primaryColor: const Color(0xFF64C9CF), // Turquoise
-    hintColor: const Color(0xFFEE8959), // Coral
+    primaryColor: PRIMARY_COLOR,
+    hintColor: Colors.indigo, // Turquoise
     scaffoldBackgroundColor: Colors.white,
     brightness: Brightness.light,
-    appBarTheme: const AppBarTheme(
-      color: Color(0xFF64C9CF),
+    appBarTheme: AppBarTheme(
+      color: PRIMARY_COLOR,
       elevation: 0,
-      iconTheme: IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: Colors.black),
     ),
     textTheme: const TextTheme(
       // Define text styles with black color for light theme
@@ -23,23 +27,29 @@ class AppThemes {
       bodyMedium: TextStyle(color: Colors.black, fontSize: 14),
       bodySmall: TextStyle(color: Colors.black, fontSize: 12),
     ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.all<Color>(const Color(0xFF00394B)),
+      foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
+    )),
     buttonTheme: const ButtonThemeData(
       // Define button theme properties for light theme
       buttonColor: Color(0xFF64C9CF), // Turquoise
-      textTheme: ButtonTextTheme.primary,
+      textTheme: ButtonTextTheme.normal,
     ),
     // Define other properties for the light theme
   );
 
   static ThemeData darkTheme = ThemeData(
-    primaryColor: const Color(0xFF5B7C8D), // Slate Blue
-    hintColor: const Color(0xFFDAA588), // Sand
+    primaryColor: PRIMARY_COLOR_DARK, // Slate Blue
+    hintColor: Colors.cyan, // Sand
     scaffoldBackgroundColor: Colors.black, // black
     brightness: Brightness.dark,
-    appBarTheme: const AppBarTheme(
-      color: Color(0xFF5B7C8D),
+    appBarTheme: AppBarTheme(
+      color: PRIMARY_COLOR_DARK,
       elevation: 0,
-      iconTheme: IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: Colors.white),
     ),
     textTheme: const TextTheme(
       // Define text styles with white color for dark theme
@@ -53,12 +63,13 @@ class AppThemes {
       bodyMedium: TextStyle(color: Colors.white, fontSize: 14),
       bodySmall: TextStyle(color: Colors.white, fontSize: 12),
     ),
-    buttonTheme: const ButtonThemeData(
-      // Define button theme properties for dark theme
-      buttonColor: Color(0xFF5B7C8D), // Slate Blue
-      textTheme: ButtonTextTheme.primary,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor:
+            WidgetStateProperty.all<Color>(const Color(0xFFBED8FE)),
+        foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+      ),
     ),
-    // Define other properties for the dark theme
   );
 
   static ThemeData getTheme(BuildContext context) {
