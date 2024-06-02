@@ -2,7 +2,7 @@ import 'package:awekon/config/size_config.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
-  const Settings({Key? key});
+  const Settings({super.key, Key? key1});
 
   @override
   State<Settings> createState() => _SettingsState();
