@@ -1,0 +1,7 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  background_image: "assets/images/Awekon_background.png"
+  image: "assets/icons/Awekon_shadow_icon.png"
+  branding: "assets/images/Awekon_branding.png"

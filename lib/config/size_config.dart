@@ -13,7 +13,7 @@ class SizeConfig {
   static bool isPortrait = true;
   static bool isMobilePortrait = false;
 
-  void init(BuildContext context) {
+  static void init(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
     screenHeight = MediaQuery.of(context).size.height;
 
@@ -27,4 +27,10 @@ class SizeConfig {
     imageSizeMultiplier = blockSizeHorizontal;
     heightMultiplier = blockSizeVertical;
   }
+}
+
+Size getWidgetSize(BuildContext context, GlobalKey key) {
+  final RenderBox renderBox =
+      key.currentContext!.findRenderObject() as RenderBox;
+  return renderBox.size;
 }

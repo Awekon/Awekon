@@ -1,18 +1,45 @@
-import 'package:awekon/core/constants/size_config.dart';
-import 'package:awekon/screens/OnBoardingScreen/Views/OnBoardingScreen.dart';
+import 'package:awekon/config/size_config.dart';
+import 'package:awekon/core/Theme/Theme.dart';
 import 'package:awekon/screens/SlashScreen/Veiws/splashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const App());
+  runApp(
+    ChangeNotifierProvider<ThemeModeNotifier>(
+      create: (_) => ThemeModeNotifier(),
+      child: const MyApp(),
+    ),
+  );
 }
 
-class App extends StatelessWidget {
-  const App({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
-    return const MaterialApp(debugShowCheckedModeBanner: false, home: const splashScreen());
+    SizeConfig.init(context);
+    return Consumer<ThemeModeNotifier>(
+      builder: (_, themeModeNotifier, __) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          themeMode: themeModeNotifier.themeMode,
+          theme: AppThemes.lightTheme,
+          darkTheme: AppThemes.darkTheme,
+          home: const SplashScreen(),
+        );
+      },
+    );
+  }
+}
+
+class ThemeModeNotifier with ChangeNotifier {
+  ThemeMode _themeMode = ThemeMode.system;
+
+  ThemeMode get themeMode => _themeMode;
+
+  set themeMode(ThemeMode mode) {
+    _themeMode = mode;
+    notifyListeners();
   }
 }
