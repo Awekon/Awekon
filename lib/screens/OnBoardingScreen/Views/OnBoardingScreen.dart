@@ -1,6 +1,8 @@
 import 'package:awekon/components/ui_components/BottomNavigation/Views/BottomNavigation.dart';
+import 'package:awekon/config/SharedPreference.dart';
 import 'package:awekon/config/size_config.dart';
 import 'package:awekon/core/constants/BottomNavigationItems.dart';
+import 'package:awekon/core/constants/SharedPreferenceConstants.dart';
 import 'package:awekon/core/constants/font_size.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -36,7 +38,24 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
     },
   ];
 
-  void navigate() {
+  @override
+  void initState() {
+    super.initState();
+    _checkOnboardingStatus();
+  }
+
+  Future<void> _checkOnboardingStatus() async {
+    if (await SharedPreferencesHelper.getValue<bool>(onBoardKey) == true) {
+      _navigateToHome();
+    }
+  }
+
+  Future<void> _completeOnboarding() async {
+    await SharedPreferencesHelper.setValue<bool>('onboardingCompleted', true);
+    _navigateToHome();
+  }
+
+  void _navigateToHome() {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -123,7 +142,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
               top: 16.0,
               right: 16.0,
               child: TextButton(
-                onPressed: navigate,
+                onPressed: _completeOnboarding,
                 child: Row(
                   children: [
                     Text('Skip', style: theme.textTheme.displayMedium),
@@ -154,7 +173,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                       padding: EdgeInsets.symmetric(
                           vertical: 1.5 * SizeConfig.blockSizeVertical),
                     ),
-                    onPressed: navigate,
+                    onPressed: _completeOnboarding,
                     child: const Text(
                       "Continue",
                       style: TextStyle(fontSize: FontSize.medium),

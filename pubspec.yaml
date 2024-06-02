@@ -40,6 +40,7 @@ dependencies:
   video_player: ^2.3.0
   smooth_page_indicator:
   provider: ^5.0.0
+  shared_preferences: ^2.0.9
 
 dev_dependencies:
   flutter_test:
