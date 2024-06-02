@@ -3,8 +3,8 @@ import 'package:awekon/screens/OnBoardingScreen/Views/OnBoardingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class splashScreen extends StatelessWidget {
-  const splashScreen({super.key});
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
