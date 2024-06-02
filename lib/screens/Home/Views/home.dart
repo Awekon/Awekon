@@ -2,6 +2,7 @@ import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dar
 import 'package:awekon/core/constants/font_size.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../../../components/ui_components/Trending Carousel/Views/carousel.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -60,16 +61,9 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: [
-          const Center(
-            child: Text(
-              "Home",
-              style: TextStyle(fontSize: FontSize.large),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: _performApiCall,
-            child: const Text("Load"),
-          ),
+          Center(
+            child:TrendingCarousel()
+          )
         ],
       ),
     );
