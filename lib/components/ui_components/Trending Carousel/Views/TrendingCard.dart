@@ -20,9 +20,9 @@ class TrendingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(5.0),
+      margin: const EdgeInsets.symmetric(vertical: 3, horizontal: 0.3),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(15.0),
         image: DecorationImage(
           image: AssetImage(item.imagePath),
           fit: BoxFit.cover,

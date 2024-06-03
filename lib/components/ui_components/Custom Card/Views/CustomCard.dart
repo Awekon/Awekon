@@ -8,9 +8,9 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-          vertical: 0.005 * MediaQuery.of(context).size.height),
+          vertical: 0.004 * MediaQuery.of(context).size.height),
       width: MediaQuery.of(context).size.width,
-      height: 300,
+      height: MediaQuery.of(context).size.height * 0.28,
       child: Stack(
         children: [
           // Background Image

@@ -15,8 +15,10 @@ class TrendingCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: 400.0,
+        height: MediaQuery.of(context).size.height * 0.33,
         enlargeCenterPage: true,
+        viewportFraction: 0.60,
+        enlargeFactor: 0.25,
         enableInfiniteScroll: true,
         autoPlay: true,
       ),
