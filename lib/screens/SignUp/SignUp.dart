@@ -1,9 +1,11 @@
+import 'package:awekon/components/ui_components/BottomNavigation/Views/BottomNavigation.dart';
 import 'package:awekon/components/ui_components/TextField/CustomTextField.dart';
 import 'package:awekon/config/size_config.dart';
+import 'package:awekon/core/constants/BottomNavigationItems.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
-  const SignUp({Key? key}) : super(key: key);
+  const SignUp({super.key});
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -13,6 +15,8 @@ class _SignUpState extends State<SignUp> {
   late TextEditingController fullNameController;
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  late PageController _pageController;
+  var _pageindex = 0;
 
   @override
   void initState() {
@@ -20,6 +24,12 @@ class _SignUpState extends State<SignUp> {
     fullNameController = TextEditingController();
     emailController = TextEditingController();
     passwordController = TextEditingController();
+    _pageController = PageController();
+    _pageController.addListener(() {
+      setState(() {
+        _pageindex = _pageController.page?.round() ?? 0;
+      });
+    });
   }
 
   @override
@@ -27,6 +37,7 @@ class _SignUpState extends State<SignUp> {
     fullNameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -55,6 +66,18 @@ class _SignUpState extends State<SignUp> {
     },
   ];
 
+  signUpButtonFunction() {
+    if (_pageindex < textFieldParams.length - 1) {
+      _pageController.jumpToPage(_pageindex + 1);
+    } else {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  BottomNavigation(items: bottomNavigationItems)));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +85,7 @@ class _SignUpState extends State<SignUp> {
       body: Stack(
         children: [
           Container(
-            height: double.infinity,
+            height: 90 * SizeConfig.blockSizeVertical,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -113,8 +136,8 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
           Container(
-            height: double.infinity,
             width: double.infinity,
+            height: double.infinity,
             margin: EdgeInsets.only(
               top: 40 * SizeConfig.blockSizeVertical,
             ),
@@ -125,26 +148,85 @@ class _SignUpState extends State<SignUp> {
                 topRight: Radius.circular(30),
               ),
             ),
-            child: Expanded(
-              flex: 3,
-              child: Column(
-                children: [
-                  PageView.builder(
-                    itemCount: textFieldParams.length,
-                    itemBuilder: (context, index) {
-                      return CustomTextField(
-                        controller: textFieldParams[index]['controller'],
-                        inputType: textFieldParams[index]['inputType'],
-                        icon: textFieldParams[index]['icon'],
-                        hint: textFieldParams[index]['hint'],
-                        label: textFieldParams[index]['label'],
-                      );
-                    },
-                  ),
-                ],
+            child: Padding(
+              padding: EdgeInsets.only(top: 13 * SizeConfig.blockSizeVertical),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 10 * SizeConfig.blockSizeHorizontal, bottom: 5),
+                      child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            "Enter Your ${textFieldParams[_pageindex]["hint"]}",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(fontFamily: 'primaryFont'),
+                          )),
+                    ),
+                    SizedBox(
+                      height: 13 * SizeConfig.blockSizeVertical,
+                      child: PageView.builder(
+                        controller: _pageController,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: textFieldParams.length,
+                        itemBuilder: (context, index) {
+                          return CustomTextField(
+                            controller: textFieldParams[index]['controller'],
+                            inputType: textFieldParams[index]['inputType'],
+                            icon: textFieldParams[index]['icon'],
+                            hint: textFieldParams[index]['hint'],
+                            label: textFieldParams[index]['label'],
+                          );
+                        },
+                      ),
+                    ),
+                    Stack(children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          right: 5 * SizeConfig.blockSizeHorizontal,
+                          top: 2 * SizeConfig.blockSizeVertical,
+                        ),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: CircleAvatar(
+                            backgroundColor: Theme.of(context).primaryColor,
+                            child: IconButton(
+                              icon: _pageindex == textFieldParams.length - 1
+                                  ? const Icon(Icons.check_outlined)
+                                  : const Icon(Icons.arrow_forward),
+                              onPressed: signUpButtonFunction,
+                            ),
+                          ),
+                        ),
+                      ),
+                      if (_pageindex != 0)
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 5 * SizeConfig.blockSizeHorizontal,
+                            top: 2 * SizeConfig.blockSizeVertical,
+                          ),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: CircleAvatar(
+                              backgroundColor: Theme.of(context).primaryColor,
+                              child: IconButton(
+                                icon: const Icon(Icons.arrow_back),
+                                onPressed: () {
+                                  _pageController.jumpToPage(_pageindex - 1);
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                    ]),
+                  ],
+                ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -1,9 +1,8 @@
-import 'package:awekon/components/ui_components/BottomNavigation/Views/BottomNavigation.dart';
 import 'package:awekon/config/SharedPreference.dart';
 import 'package:awekon/config/size_config.dart';
-import 'package:awekon/core/constants/BottomNavigationItems.dart';
 import 'package:awekon/core/constants/SharedPreferenceConstants.dart';
 import 'package:awekon/core/constants/font_size.dart';
+import 'package:awekon/screens/SignUp/SignUp.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -59,7 +58,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => BottomNavigation(items: bottomNavigationItems),
+        builder: (context) => const SignUp(),
       ),
     );
   }
