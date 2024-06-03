@@ -1,4 +1,3 @@
-import 'package:awekon/core/constants/size_config.dart';
 import 'package:flutter/material.dart';
 
 class TrendingItem {
@@ -12,7 +11,8 @@ class TrendingItem {
 
 class TrendingCard extends StatelessWidget {
   const TrendingCard({
-    super.key, required this.item,
+    super.key,
+    required this.item,
   });
 
   final TrendingItem item;
