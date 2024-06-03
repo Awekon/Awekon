@@ -11,6 +11,13 @@ class CustomCard extends StatelessWidget {
           vertical: 0.004 * MediaQuery.of(context).size.height),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.28,
+      decoration: BoxDecoration(
+          border: const Border.symmetric(
+              horizontal: BorderSide(
+            color: Colors.grey,
+            width: 0.7,
+          )),
+          borderRadius: BorderRadius.circular(10)),
       child: Stack(
         children: [
           // Background Image
@@ -47,6 +54,13 @@ class CustomCard extends StatelessWidget {
                         color: Colors.white,
                         fontSize: 3 * SizeConfig.blockSizeVertical,
                         fontWeight: FontWeight.bold,
+                        shadows: const [
+                          Shadow(
+                            blurRadius: 10.0,
+                            color: Colors.black,
+                            offset: Offset(2.0, 2.0),
+                          ),
+                        ],
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -60,24 +74,46 @@ class CustomCard extends StatelessWidget {
                     SizedBox(height: 10 * SizeConfig.blockSizeHorizontal),
                   ],
                 ),
-                const Align(
+                Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
-                    padding: EdgeInsets.only(left: 3.0, bottom: 2.5),
-                    child: CircleAvatar(
-                        backgroundImage:
-                            NetworkImage("https://source.unsplash.com/random")),
+                    padding: const EdgeInsets.only(left: 3.0, bottom: 2.5),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 1.2,
+                        ),
+                      ),
+                      child: const CircleAvatar(
+                          backgroundImage: NetworkImage(
+                              "https://source.unsplash.com/random")),
+                    ),
                   ),
                 )
               ]),
             ),
           ),
-          const Align(
+          Align(
             alignment: Alignment.center,
-            child: Icon(
-              Icons.play_circle_fill,
-              color: Colors.white,
-              size: 50,
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black54.withOpacity(0.5),
+                    blurRadius: 7.0,
+                    spreadRadius: 5.0,
+                    offset: const Offset(0.0, 4.0),
+                  ),
+                ],
+              ),
+              child: const Icon(
+                Icons.play_circle_fill,
+                color: Colors.white,
+                size: 50,
+              ),
             ),
           ),
           const Align(
@@ -89,10 +125,11 @@ class CustomCard extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
