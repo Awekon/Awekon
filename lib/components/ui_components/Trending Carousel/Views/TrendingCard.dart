@@ -1,4 +1,4 @@
-import 'package:awekon/core/constants/size_config.dart';
+
 import 'package:flutter/material.dart';
 
 class TrendingItem {

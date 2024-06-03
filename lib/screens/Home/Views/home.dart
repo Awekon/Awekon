@@ -1,3 +1,4 @@
+import 'package:awekon/components/ui_components/Custom%20Card/Views/CustomCard.dart';
 import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
 import 'package:awekon/core/constants/font_size.dart';
 import 'package:flutter/foundation.dart';
@@ -45,13 +46,25 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Center(
-            child:TrendingCarousel()
-          )
-        ],
-      ),
+        body: Center(
+        child: Column(
+        mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'Trending',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10.0),
+            TrendingCarousel(),
+            const SizedBox(height: 10.0),
+            // CustomCard(),
+            
+          ],
+    ),
+    )
     );
   }
 
