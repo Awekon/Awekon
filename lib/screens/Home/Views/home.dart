@@ -1,9 +1,9 @@
-import 'package:awekon/components/ui_components/Custom%20Card/Views/CustomCard.dart';
-import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
-import 'package:awekon/core/constants/font_size.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'package:awekon/components/ui_components/Custom%20Card/Views/CustomCard.dart';
+import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
+import 'package:awekon/core/constants/font_size.dart';
 import '../../../components/ui_components/Trending Carousel/Views/carousel.dart';
 
 class Home extends StatefulWidget {
@@ -15,6 +15,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final LoadingManager _loadingManager = LoadingManager();
+
 
   @override
   void dispose() {
@@ -47,6 +48,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
