@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 class CustomTextTheme {
   static TextTheme lightTextTheme = const TextTheme(
     displayLarge: TextStyle(color: Colors.black, fontSize: 34),
-    displayMedium: TextStyle(color: Colors.black, fontSize: 32),
+    displayMedium: TextStyle(
+        color: Colors.black,
+        fontSize: 32,
+        fontFamily: 'primaryFont',
+        fontWeight: FontWeight.w600),
     displaySmall: TextStyle(color: Colors.black, fontSize: 28),
     headlineLarge: TextStyle(color: Colors.black, fontSize: 26),
     headlineMedium: TextStyle(color: Colors.black, fontSize: 24),
@@ -22,7 +26,11 @@ class CustomTextTheme {
   static TextTheme darkTextTheme = const TextTheme(
     // Define text styles with white color for dark theme
     displayLarge: TextStyle(color: Colors.white, fontSize: 34),
-    displayMedium: TextStyle(color: Colors.white, fontSize: 32),
+    displayMedium: TextStyle(
+      color: Colors.white,
+      fontSize: 32,
+      fontFamily: 'primaryFont',
+    ),
     displaySmall: TextStyle(color: Colors.white, fontSize: 28),
     headlineLarge: TextStyle(color: Colors.white, fontSize: 26),
     headlineMedium: TextStyle(color: Colors.white, fontSize: 24),
