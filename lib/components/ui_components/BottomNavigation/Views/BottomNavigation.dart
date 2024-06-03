@@ -40,7 +40,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
           style: const TextStyle(fontSize: FontSize.medium),
         ),
       ),
-      body: widget.items[_selectedIndex].screen,
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: widget.items.map((item) => item.screen).toList(),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: widget.items
             .map((item) => BottomNavigationBarItem(
