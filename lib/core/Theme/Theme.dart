@@ -1,13 +1,40 @@
+import 'package:awekon/core/Theme/TextTheme.dart';
 import 'package:flutter/material.dart';
 
+Color averageColor(List<Color> colors) {
+  int red = 0, green = 0, blue = 0;
+  for (var color in colors) {
+    red += color.red;
+    green += color.green;
+    blue += color.blue;
+  }
+  int count = colors.length;
+  return Color.fromARGB(
+    255,
+    (red / count).round(),
+    (green / count).round(),
+    (blue / count).round(),
+  );
+}
+
 class AppThemes {
-  static Color PRIMARY_COLOR = const Color(0xFF1A77BA);
-  // static Color ACCENT_COLOR = const Color();
-  static Color PRIMARY_COLOR_DARK = const Color(0xFF024F70);
-  // static Color ACCENT_COLOR_DARK = const Color();
+  static final List<Color> gradientColors = [
+    const Color.fromRGBO(240, 104, 104, 1),
+    const Color.fromRGBO(148, 56, 44, 1),
+    const Color.fromRGBO(98, 67, 20, 1),
+    const Color.fromRGBO(101, 18, 15, 1),
+    const Color.fromRGBO(227, 154, 52, 1),
+  ];
+  static Color PRIMARY_COLOR = const Color(0xFFEA817A);
+  static Color ACCENT_COLOR = const Color(0xFF310704);
+  // static Color PRIMARY_COLOR = averageColor(gradientColors);
+  static Color PRIMARY_COLOR_DARK = const Color(0xFF5E1208);
+  static Color ACCENT_COLOR_DARK = const Color(0xFFB79897);
   static ThemeData lightTheme = ThemeData(
     primaryColor: PRIMARY_COLOR,
-    hintColor: Colors.indigo, // Turquoise
+    // primarySwatch: Colors.deepOrange,
+    focusColor: PRIMARY_COLOR,
+    hintColor: Colors.indigo,
     scaffoldBackgroundColor: Colors.white,
     brightness: Brightness.light,
     appBarTheme: AppBarTheme(
@@ -15,18 +42,7 @@ class AppThemes {
       elevation: 0,
       iconTheme: const IconThemeData(color: Colors.black),
     ),
-    textTheme: const TextTheme(
-      // Define text styles with black color for light theme
-      displayLarge: TextStyle(color: Colors.black, fontSize: 24),
-      displayMedium: TextStyle(color: Colors.black, fontSize: 22),
-      displaySmall: TextStyle(color: Colors.black, fontSize: 20),
-      headlineLarge: TextStyle(color: Colors.black, fontSize: 18),
-      headlineMedium: TextStyle(color: Colors.black, fontSize: 16),
-      headlineSmall: TextStyle(color: Colors.black, fontSize: 14),
-      bodyLarge: TextStyle(color: Colors.black, fontSize: 16),
-      bodyMedium: TextStyle(color: Colors.black, fontSize: 14),
-      bodySmall: TextStyle(color: Colors.black, fontSize: 12),
-    ),
+    textTheme: CustomTextTheme.lightTextTheme,
 
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
@@ -38,39 +54,35 @@ class AppThemes {
       buttonColor: Color(0xFF64C9CF), // Turquoise
       textTheme: ButtonTextTheme.normal,
     ),
-    // Define other properties for the light theme
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: PRIMARY_COLOR,
+        selectedIconTheme: const IconThemeData(color: Colors.black),
+        selectedItemColor: Colors.black),
   );
 
   static ThemeData darkTheme = ThemeData(
-    primaryColor: PRIMARY_COLOR_DARK, // Slate Blue
-    hintColor: Colors.cyan, // Sand
-    scaffoldBackgroundColor: Colors.black, // black
-    brightness: Brightness.dark,
-    appBarTheme: AppBarTheme(
-      color: PRIMARY_COLOR_DARK,
-      elevation: 0,
-      iconTheme: const IconThemeData(color: Colors.white),
-    ),
-    textTheme: const TextTheme(
-      // Define text styles with white color for dark theme
-      displayLarge: TextStyle(color: Colors.white, fontSize: 24),
-      displayMedium: TextStyle(color: Colors.white, fontSize: 22),
-      displaySmall: TextStyle(color: Colors.white, fontSize: 20),
-      headlineLarge: TextStyle(color: Colors.white, fontSize: 18),
-      headlineMedium: TextStyle(color: Colors.white, fontSize: 16),
-      headlineSmall: TextStyle(color: Colors.white, fontSize: 14),
-      bodyLarge: TextStyle(color: Colors.white, fontSize: 16),
-      bodyMedium: TextStyle(color: Colors.white, fontSize: 14),
-      bodySmall: TextStyle(color: Colors.white, fontSize: 12),
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ButtonStyle(
-        backgroundColor:
-            WidgetStateProperty.all<Color>(const Color(0xFFBED8FE)),
-        foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+      primaryColor: PRIMARY_COLOR_DARK, // Slate Blue
+      hintColor: PRIMARY_COLOR_DARK,
+      focusColor: PRIMARY_COLOR_DARK, // Sand
+      scaffoldBackgroundColor: Colors.black, // black
+      brightness: Brightness.dark,
+      appBarTheme: AppBarTheme(
+        color: PRIMARY_COLOR_DARK,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
-    ),
-  );
+      textTheme: CustomTextTheme.darkTextTheme,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor:
+              WidgetStateProperty.all<Color>(const Color(0xFFBED8FE)),
+          foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
+        ),
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: PRIMARY_COLOR_DARK,
+          selectedIconTheme: const IconThemeData(color: Colors.white),
+          selectedItemColor: Colors.white));
 
   static ThemeData getTheme(BuildContext context) {
     final Brightness brightnessValue =

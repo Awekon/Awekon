@@ -1,8 +1,10 @@
 import 'package:awekon/components/ui_components/Custom%20Card/Views/CustomCard.dart';
 import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
 import 'package:awekon/core/constants/font_size.dart';
+import 'package:awekon/screens/SignUp/SignUp.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import '../../../components/ui_components/Trending Carousel/Views/carousel.dart';
 
 class Home extends StatefulWidget {
@@ -46,25 +48,27 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
-        mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              'Trending',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+            Center(child: TrendingCarousel()),
+            const Center(
+              child: Text(
+                "Home",
+                style: TextStyle(fontSize: FontSize.large),
               ),
             ),
-            const SizedBox(height: 10.0),
-            TrendingCarousel(),
-            const SizedBox(height: 10.0),
-            // CustomCard(),
-            
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const SignUp()));
+              },
+              child: const Text("Go To Signup"),
+            ),
           ],
-    ),
-    )
+        ),
+      ),
     );
   }
 
