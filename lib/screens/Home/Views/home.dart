@@ -1,7 +1,6 @@
 import 'package:awekon/components/ui_components/Custom%20Card/Views/CustomCard.dart';
 import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
 import 'package:awekon/core/constants/font_size.dart';
-import 'package:awekon/screens/SignUp/SignUp.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -52,21 +51,21 @@ class _HomeState extends State<Home> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Center(child: TrendingCarousel()),
+            SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
             const Center(
               child: Text(
-                "Home",
+                "Trending",
                 style: TextStyle(fontSize: FontSize.large),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const SignUp()));
-              },
-              child: const Text("Go To Signup"),
-            ),
-            CustomCard(),
+            SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
+            Center(child: TrendingCarousel()),
+            SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
+            const CustomCard(),
+            const CustomCard(),
+            const CustomCard(),
+            const CustomCard(),
+            const CustomCard(),
           ],
         ),
       ),
