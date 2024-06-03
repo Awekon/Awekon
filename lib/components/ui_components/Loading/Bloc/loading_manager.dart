@@ -20,9 +20,7 @@ class LoadingManager {
             if (value) {
               return const Loading();
             } else {
-              Future.delayed(const Duration(milliseconds: 100), () {
-                Navigator.of(context).pop();
-              });
+              Navigator.of(context).pop();
               return const SizedBox.shrink();
             }
           },
