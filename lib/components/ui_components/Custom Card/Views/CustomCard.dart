@@ -5,7 +5,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
         // Background Image
         Container(
@@ -23,7 +23,7 @@ class CustomCard extends StatelessWidget {
         Positioned.fill(
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.deepPurple.withOpacity(0.5),
+              color: Colors.grey.withOpacity(0.3),
               borderRadius: BorderRadius.circular(15),
             ),
           ),
@@ -50,13 +50,13 @@ class CustomCard extends StatelessWidget {
                   fontSize: 16,
                 ),
               ),
-              Spacer(),
+              SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleAvatar(
-                    // backgroundImage: NetworkImage(),
-                  ),
+                      // backgroundImage: NetworkImage(),
+                      ),
                   Text(
                     '56:18',
                     style: TextStyle(
