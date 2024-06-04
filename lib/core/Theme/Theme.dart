@@ -1,88 +1,86 @@
 import 'package:awekon/core/Theme/TextTheme.dart';
 import 'package:flutter/material.dart';
 
-Color averageColor(List<Color> colors) {
-  int red = 0, green = 0, blue = 0;
-  for (var color in colors) {
-    red += color.red;
-    green += color.green;
-    blue += color.blue;
-  }
-  int count = colors.length;
-  return Color.fromARGB(
-    255,
-    (red / count).round(),
-    (green / count).round(),
-    (blue / count).round(),
-  );
-}
-
 class AppThemes {
-  static final List<Color> gradientColors = [
-    const Color.fromRGBO(240, 104, 104, 1),
-    const Color.fromRGBO(148, 56, 44, 1),
-    const Color.fromRGBO(98, 67, 20, 1),
-    const Color.fromRGBO(101, 18, 15, 1),
-    const Color.fromRGBO(227, 154, 52, 1),
-  ];
-  static Color PRIMARY_COLOR = const Color(0xFFEA817A);
-  static Color ACCENT_COLOR = const Color(0xFF310704);
-  // static Color PRIMARY_COLOR = averageColor(gradientColors);
-  static Color PRIMARY_COLOR_DARK = const Color(0xFF5E1208);
-  static Color ACCENT_COLOR_DARK = const Color(0xFFB79897);
+  static Color PRIMARY_COLOR_DARK = const Color(0xff2a011a);
+  static Color SECONDARY_DARK = const Color(0xFFF8E1FF);
+  static Color PRIMARY_COLOR = SECONDARY_DARK;
+  static Color SECONDARY = PRIMARY_COLOR_DARK;
+  static Color ACCENT = const Color(0xFF393956);
+  static Color SELECTED = const Color(0xFF0E0E79);
+  static Color SELECTED_DARK = const Color(0xFFE0E0EC);
   static ThemeData lightTheme = ThemeData(
-    primaryColor: PRIMARY_COLOR,
-    // primarySwatch: Colors.deepOrange,
-    focusColor: PRIMARY_COLOR,
-    hintColor: Colors.indigo,
-    scaffoldBackgroundColor: Colors.white,
+    primaryColor: SECONDARY,
+    focusColor: SECONDARY,
+    hintColor: SECONDARY,
+    scaffoldBackgroundColor: PRIMARY_COLOR,
     brightness: Brightness.light,
+    colorScheme: ColorScheme(
+        primary: SECONDARY,
+        onPrimary: PRIMARY_COLOR,
+        secondary: PRIMARY_COLOR,
+        onSecondary: SECONDARY,
+        surface: PRIMARY_COLOR,
+        onSurface: SECONDARY,
+        brightness: Brightness.light,
+        error: Colors.blueGrey,
+        onError: Colors.white),
     appBarTheme: AppBarTheme(
-      color: PRIMARY_COLOR,
+      color: Colors.transparent,
       elevation: 0,
-      iconTheme: const IconThemeData(color: Colors.black),
+      iconTheme: IconThemeData(color: SECONDARY),
     ),
     textTheme: CustomTextTheme.lightTextTheme,
-
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-      backgroundColor: WidgetStateProperty.all<Color>(const Color(0xFF00394B)),
+      backgroundColor: WidgetStateProperty.all<Color>(ACCENT),
       foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
     )),
-    buttonTheme: const ButtonThemeData(
-      // Define button theme properties for light theme
-      buttonColor: Color(0xFF64C9CF), // Turquoise
-      textTheme: ButtonTextTheme.normal,
-    ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: PRIMARY_COLOR,
-        selectedIconTheme: const IconThemeData(color: Colors.black),
-        selectedItemColor: Colors.black),
+      backgroundColor: PRIMARY_COLOR,
+      unselectedIconTheme: IconThemeData(color: SECONDARY),
+      unselectedItemColor: SECONDARY,
+      selectedItemColor: SELECTED,
+      selectedIconTheme: IconThemeData(color: SELECTED),
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(
-      primaryColor: PRIMARY_COLOR_DARK, // Slate Blue
-      hintColor: PRIMARY_COLOR_DARK,
-      focusColor: PRIMARY_COLOR_DARK, // Sand
-      scaffoldBackgroundColor: Colors.black, // black
-      brightness: Brightness.dark,
-      appBarTheme: AppBarTheme(
-        color: PRIMARY_COLOR_DARK,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
+    primaryColor: SECONDARY_DARK, // Slate Blue
+    hintColor: SECONDARY_DARK,
+    focusColor: SECONDARY_DARK, // Sand
+    scaffoldBackgroundColor: PRIMARY_COLOR_DARK,
+    colorScheme: ColorScheme(
+        primary: SECONDARY_DARK,
+        onPrimary: PRIMARY_COLOR_DARK,
+        secondary: PRIMARY_COLOR_DARK,
+        onSecondary: SECONDARY_DARK,
+        surface: PRIMARY_COLOR_DARK,
+        onSurface: SECONDARY_DARK,
+        brightness: Brightness.dark,
+        error: Colors.white,
+        onError: Colors.blueGrey),
+    brightness: Brightness.dark,
+    appBarTheme: AppBarTheme(
+      color: Colors.transparent,
+      elevation: 0,
+      iconTheme: IconThemeData(color: SECONDARY_DARK),
+    ),
+    textTheme: CustomTextTheme.darkTextTheme,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all<Color>(ACCENT),
+        foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
       ),
-      textTheme: CustomTextTheme.darkTextTheme,
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor:
-              WidgetStateProperty.all<Color>(const Color(0xFFBED8FE)),
-          foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
-        ),
-      ),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: PRIMARY_COLOR_DARK,
-          selectedIconTheme: const IconThemeData(color: Colors.white),
-          selectedItemColor: Colors.white));
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: PRIMARY_COLOR_DARK,
+      unselectedIconTheme: IconThemeData(color: SECONDARY_DARK),
+      unselectedItemColor: SECONDARY_DARK,
+      selectedIconTheme: IconThemeData(color: SELECTED_DARK),
+      selectedItemColor: SECONDARY_DARK,
+    ),
+  );
 
   static ThemeData getTheme(BuildContext context) {
     final Brightness brightnessValue =

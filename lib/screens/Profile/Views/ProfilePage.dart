@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const ProfilePageApp());
-
 class ProfilePageApp extends StatelessWidget {
   const ProfilePageApp({super.key});
 
@@ -85,7 +83,6 @@ class ProfilePage extends StatelessWidget {
                 const SizedBox(height: 8),
                 const Text(
                   'Short bio about the user goes here.',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
                 const SizedBox(height: 8),
                 ElevatedButton(
@@ -126,7 +123,7 @@ class ProfilePage extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           label,
-          style: const TextStyle(fontSize: 16, color: Colors.grey),
+          style: const TextStyle(fontSize: 16),
         ),
       ],
     );
