@@ -20,7 +20,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile Page'),
+        title: const Text('Profile'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -47,14 +47,16 @@ class ProfilePage extends StatelessWidget {
               width: 100,
               height: 100,
               fit: BoxFit.cover,
-              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+              errorBuilder: (BuildContext context, Object exception,
+                  StackTrace? stackTrace) {
                 return const Icon(
                   Icons.account_circle,
                   size: 100,
                   color: Colors.grey,
                 );
               },
-              loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+              loadingBuilder: (BuildContext context, Widget child,
+                  ImageChunkEvent? loadingProgress) {
                 if (loadingProgress == null) return child;
                 return SizedBox(
                   width: 100,
@@ -62,7 +64,8 @@ class ProfilePage extends StatelessWidget {
                   child: Center(
                     child: CircularProgressIndicator(
                       value: loadingProgress.expectedTotalBytes != null
-                          ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                          ? loadingProgress.cumulativeBytesLoaded /
+                              (loadingProgress.expectedTotalBytes ?? 1)
                           : null,
                     ),
                   ),

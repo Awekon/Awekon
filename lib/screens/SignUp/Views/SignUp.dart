@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:awekon/components/ui_components/BottomNavigation/Views/BottomNavigation.dart';
 import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
-import 'package:awekon/components/ui_components/TextField/CustomTextField.dart';
+import 'package:awekon/components/ui_components/TextField/Views/CustomTextField.dart';
 import 'package:awekon/config/size_config.dart';
 import 'package:awekon/core/constants/BottomNavigationItems.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,6 @@ class _SignUpState extends State<SignUp> {
   late TextEditingController passwordController;
   late PageController _pageController;
   var _pageindex = 0;
-  final LoadingManager _loadingManager = LoadingManager();
 
   @override
   void initState() {
@@ -69,21 +68,18 @@ class _SignUpState extends State<SignUp> {
       'label': 'Password',
     },
   ];
-  _navigateToHome() async {
-    _loadingManager.hideLoading();
-    await Future.delayed(const Duration(milliseconds: 20));
-    if (mounted) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return BottomNavigation(items: bottomNavigationItems);
-      }));
-    }
+  _navigateToHome() {
+    LoadingManager.hideLoading(context);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return BottomNavigation(items: bottomNavigationItems);
+    }));
   }
 
-  signUpButtonFunction() async {
+  signUpButtonFunction() {
     if (_pageindex < textFieldParams.length - 1) {
       _pageController.jumpToPage(_pageindex + 1);
     } else {
-      _loadingManager.showLoading(context);
+      LoadingManager.showLoading(context);
       Timer(const Duration(seconds: 2), _navigateToHome);
     }
   }

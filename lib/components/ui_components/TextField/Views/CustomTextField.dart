@@ -1,4 +1,4 @@
-import 'package:awekon/components/ui_components/TextField/CustomPhoneField.dart';
+import 'package:awekon/components/ui_components/TextField/Views/CustomPhoneField.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
