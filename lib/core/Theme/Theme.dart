@@ -9,6 +9,8 @@ class AppThemes {
   static Color ACCENT = const Color(0xFF393956);
   static Color SELECTED = const Color(0xFF0E0E79);
   static Color SELECTED_DARK = const Color(0xFFE0E0EC);
+
+  // Code for light theme
   static ThemeData lightTheme = ThemeData(
     primaryColor: SECONDARY,
     focusColor: SECONDARY,
@@ -45,6 +47,7 @@ class AppThemes {
     ),
   );
 
+  // Code for dark theme
   static ThemeData darkTheme = ThemeData(
     primaryColor: SECONDARY_DARK, // Slate Blue
     hintColor: SECONDARY_DARK,
