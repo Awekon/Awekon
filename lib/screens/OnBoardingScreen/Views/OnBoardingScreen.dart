@@ -67,7 +67,6 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
       body: SafeArea(
         child: Stack(
           children: [
@@ -143,13 +142,17 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
               child: TextButton(
                 onPressed: _completeOnboarding,
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('Skip', style: theme.textTheme.displayMedium),
-                    const SizedBox(width: 5),
-                    Icon(
+                    Text('SKIP',
+                        style: theme.textTheme.titleMedium?.copyWith(
+                            fontFamily: 'primaryFont',
+                            fontWeight: FontWeight.w700)),
+                    const SizedBox(width: 1),
+                    const Icon(
                       Icons.skip_next,
                       size: 24.0,
-                      color: theme.iconTheme.color,
                     ),
                   ],
                 ),
