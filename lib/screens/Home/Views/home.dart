@@ -4,7 +4,6 @@ import 'package:awekon/components/ui_components/Custom%20Card/Views/CustomCard.d
 import 'package:awekon/core/constants/font_size.dart';
 import '../../../components/ui_components/Trending Carousel/Views/carousel.dart';
 import 'package:awekon/components/ui_components/ForyouListView/Views/ForyouListView.dart';
-// Ensure you replace 'your_project_name' with your actual project name
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -23,10 +22,6 @@ class _HomeState extends State<Home> {
           children: [
             ForYouListView(), // Adding the For You list view here
             SizedBox(height: 0.02 * MediaQuery.of(context).size.height),
-            const Center(
-              child: Text(
-                "Trending",
-                style: TextStyle(fontSize: FontSize.large),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
               child: Row(
