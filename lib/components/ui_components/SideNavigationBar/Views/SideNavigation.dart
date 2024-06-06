@@ -10,18 +10,33 @@ class SideNavigationDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.grey,
-            ),
-            child: Text(
-              'Menu',
-              style: TextStyle(
-                color: Color(0x313334FF),
-                fontSize: 24,
-              ),
-            ),
-          ),
+          DrawerHeader(
+              child: Column(
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 0.1 * MediaQuery.of(context).size.width,
+                    backgroundImage: const NetworkImage(
+                        "https://source.unsplash.com/random"),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Jonny Sins",
+                          style: Theme.of(context).textTheme.displaySmall,
+                        ),
+                        const Text("Awekonier")
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          )),
           ListTile(
             leading: const Icon(Icons.account_circle),
             title: const Text('Profile'),

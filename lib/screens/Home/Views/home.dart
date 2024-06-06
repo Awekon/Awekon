@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../components/ui_components/Trending Carousel/Views/carousel.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -20,11 +20,17 @@ class _HomeState extends State<Home> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
-            const Center(
-              child: Text(
-                "Trending",
-                style: TextStyle(fontSize: FontSize.large),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Row(
+                children: [
+                  Text(
+                    "Trending",
+                    style: TextStyle(fontSize: FontSize.large),
+                  ),
+                  SizedBox(width: 5),
+                  Icon(Icons.trending_up_outlined),
+                ],
               ),
             ),
             SizedBox(height: 0.01 * MediaQuery.of(context).size.height),

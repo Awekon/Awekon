@@ -1,7 +1,7 @@
+import 'package:awekon/components/ui_components/CustomButton/CustomGradientButton.dart';
 import 'package:awekon/config/SharedPreference.dart';
 import 'package:awekon/config/size_config.dart';
 import 'package:awekon/core/constants/SharedPreferenceConstants.dart';
-import 'package:awekon/core/constants/font_size.dart';
 import 'package:awekon/screens/SignUp/Views/SignUp.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -164,24 +164,13 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                 left: 0,
                 right: 0,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 5 * SizeConfig.blockSizeHorizontal,
-                      vertical: 10 * SizeConfig.blockSizeVertical),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                          vertical: 1.5 * SizeConfig.blockSizeVertical),
-                    ),
-                    onPressed: _completeOnboarding,
-                    child: const Text(
-                      "Continue",
-                      style: TextStyle(fontSize: FontSize.medium),
-                    ),
-                  ),
-                ),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 5 * SizeConfig.blockSizeHorizontal,
+                        vertical: 10 * SizeConfig.blockSizeVertical),
+                    child: CustomGradientButton(
+                      child: Text("Continue"),
+                      onPressed: _completeOnboarding,
+                    )),
               ),
           ],
         ),

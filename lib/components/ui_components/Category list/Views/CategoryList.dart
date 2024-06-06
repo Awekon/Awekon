@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return const Column(
@@ -38,7 +37,8 @@ class CategoryChip extends StatefulWidget {
   final String label;
   final IconData icon;
 
-  const CategoryChip({Key? key, required this.label, required this.icon}) : super(key: key);
+  const CategoryChip({Key? key, required this.label, required this.icon})
+      : super(key: key);
 
   @override
   _CategoryChipState createState() => _CategoryChipState();
@@ -52,7 +52,9 @@ class _CategoryChipState extends State<CategoryChip> {
     return ActionChip(
       avatar: Icon(
         widget.icon,
-        color: isSelected ? Colors.white : Colors.purple,
+        color: isSelected
+            ? Theme.of(context).colorScheme.onTertiary
+            : Theme.of(context).colorScheme.onPrimary,
       ),
       label: Text(widget.label),
       onPressed: () {
@@ -60,8 +62,14 @@ class _CategoryChipState extends State<CategoryChip> {
           isSelected = !isSelected;
         });
       },
-      backgroundColor: isSelected ? Colors.purple : Colors.purple.shade50,
-      labelStyle: TextStyle(color: isSelected ? Colors.white : Colors.purple),
+      backgroundColor: isSelected
+          ? Theme.of(context).colorScheme.tertiary
+          : Theme.of(context).colorScheme.primary,
+      labelStyle: TextStyle(
+        color: isSelected
+            ? Theme.of(context).colorScheme.onTertiary
+            : Theme.of(context).colorScheme.onPrimary,
+      ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
