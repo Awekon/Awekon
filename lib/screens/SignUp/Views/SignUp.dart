@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:awekon/components/ui_components/BottomNavigation/Views/BottomNavigation.dart';
+import 'package:awekon/components/ui_components/CustomButton/CustomGradientButton.dart';
 import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
 import 'package:awekon/components/ui_components/TextField/Views/CustomTextField.dart';
 import 'package:awekon/config/size_config.dart';
+import 'package:awekon/core/Theme/Theme.dart';
 import 'package:awekon/core/constants/BottomNavigationItems.dart';
 import 'package:flutter/material.dart';
 
@@ -86,22 +88,18 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
+    var gradient = AppThemes.isDark(context)
+        ? AppThemes.GRADIENT_DARK_BACKGROUND
+        : AppThemes.GRADIENT_LIGHT_BACKGROUND;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
           Container(
-            height: 90 * SizeConfig.blockSizeVertical,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromRGBO(94, 18, 8, 1), // rgba(94,18,8,1)
-                  Color.fromRGBO(115, 101, 82, 1), // rgba(115,101,82,1)
-                ],
-                stops: [0.26, 0.66],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
+            height: 55 * SizeConfig.blockSizeVertical,
+            decoration: BoxDecoration(
+              gradient: gradient,
             ),
             child: Container(
               width: double.infinity,
@@ -122,16 +120,23 @@ class _SignUpState extends State<SignUp> {
                   ),
                   Text(
                     "Welcome,\nExplore and Enjoy!",
-                    style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                        fontFamily: 'primaryFont', color: Colors.white),
+                    style: Theme.of(context)
+                        .textTheme
+                        .displayMedium
+                        ?.copyWith(fontFamily: 'primaryFont'),
                   ),
                   SizedBox(
-                    height: 6 * SizeConfig.blockSizeVertical,
+                    height: 5 * SizeConfig.blockSizeVertical,
                   ),
                   Text(
                     "SignUp",
-                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                        fontFamily: 'primaryFont', color: Colors.white),
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineLarge
+                        ?.copyWith(fontFamily: 'primaryFont'),
+                  ),
+                  SizedBox(
+                    height: 10 * SizeConfig.blockSizeVertical,
                   ),
                 ],
               ),
@@ -151,7 +156,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.only(top: 13 * SizeConfig.blockSizeVertical),
+              padding: EdgeInsets.only(top: 10 * SizeConfig.blockSizeVertical),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -192,17 +197,13 @@ class _SignUpState extends State<SignUp> {
                           top: 2 * SizeConfig.blockSizeVertical,
                         ),
                         child: Align(
-                          alignment: Alignment.centerRight,
-                          child: CircleAvatar(
-                            backgroundColor: Theme.of(context).primaryColor,
-                            child: IconButton(
-                              icon: _pageindex == textFieldParams.length - 1
+                            alignment: Alignment.centerRight,
+                            child: CustomGradientButton(
+                              onPressed: signUpButtonFunction,
+                              child: _pageindex == textFieldParams.length - 1
                                   ? const Icon(Icons.check_outlined)
                                   : const Icon(Icons.arrow_forward),
-                              onPressed: signUpButtonFunction,
-                            ),
-                          ),
-                        ),
+                            )),
                       ),
                       if (_pageindex != 0)
                         Padding(
@@ -211,19 +212,59 @@ class _SignUpState extends State<SignUp> {
                             top: 2 * SizeConfig.blockSizeVertical,
                           ),
                           child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: CircleAvatar(
-                              backgroundColor: Theme.of(context).primaryColor,
-                              child: IconButton(
-                                icon: const Icon(Icons.arrow_back),
+                              alignment: Alignment.centerLeft,
+                              child: CustomGradientButton(
                                 onPressed: () {
                                   _pageController.jumpToPage(_pageindex - 1);
                                 },
-                              ),
-                            ),
-                          ),
+                                child: const Icon(Icons.arrow_back),
+                              )),
                         ),
                     ]),
+                    Container(
+                      margin: const EdgeInsets.only(top: 7),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text("Already have account?"),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Text(
+                              "Login",
+                              style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 30),
+                      height: 40,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                              child:
+                                  Image.asset("assets/icons/googleSignIn.png")),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          InkWell(
+                              child:
+                                  Image.asset("assets/icons/appleSignIn.png")),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          InkWell(
+                              child: Image.asset("assets/icons/xSignIn.png")),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),

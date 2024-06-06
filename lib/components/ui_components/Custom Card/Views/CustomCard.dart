@@ -6,9 +6,10 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const borderRadius = 1.0;
     return Container(
       margin: EdgeInsets.symmetric(
-          vertical: 0.004 * MediaQuery.of(context).size.height),
+          vertical: 0.002 * MediaQuery.of(context).size.height),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.28,
       decoration: BoxDecoration(
@@ -17,7 +18,7 @@ class CustomCard extends StatelessWidget {
             color: Colors.grey,
             width: 0.7,
           )),
-          borderRadius: BorderRadius.circular(10)),
+          borderRadius: BorderRadius.circular(borderRadius)),
       child: Stack(
         children: [
           // Background Image
@@ -27,7 +28,7 @@ class CustomCard extends StatelessWidget {
                 image: NetworkImage('https://source.unsplash.com/random'),
                 fit: BoxFit.cover,
               ),
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(borderRadius),
             ),
           ),
           Container(
@@ -37,8 +38,8 @@ class CustomCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.4),
               borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  bottomLeft: Radius.circular(15),
+                  topLeft: Radius.circular(borderRadius),
+                  bottomLeft: Radius.circular(borderRadius),
                   topRight: Radius.elliptical(40, 70),
                   bottomRight: Radius.elliptical(40, 70)),
             ),
@@ -52,7 +53,7 @@ class CustomCard extends StatelessWidget {
                       'This is description...',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 3 * SizeConfig.blockSizeVertical,
+                        fontSize: 2 * SizeConfig.textMultiplier,
                         fontWeight: FontWeight.bold,
                         shadows: const [
                           Shadow(
@@ -98,16 +99,8 @@ class CustomCard extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black54.withOpacity(0.5),
-                    blurRadius: 7.0,
-                    spreadRadius: 5.0,
-                    offset: const Offset(0.0, 4.0),
-                  ),
-                ],
               ),
               child: const Icon(
                 Icons.play_circle_fill,

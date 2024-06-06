@@ -1,3 +1,6 @@
+import 'package:awekon/components/ui_components/CustomAppBar/CustomSilverAppBar.dart';
+import 'package:awekon/components/ui_components/CustomButton/CustomGradientButton.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePageApp extends StatelessWidget {
@@ -17,21 +20,26 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildProfileHeader(),
-            _buildProfileStats(),
-            _buildDailyGoal(),
-            _buildOptions(),
-            _buildContentTabs(),
-          ],
+        body: NestedScrollView(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return [
+          const CustomSliverAppBar(title: Text("Profile")),
+        ];
+      },
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _buildProfileHeader(),
+              _buildProfileStats(),
+              _buildDailyGoal(),
+              _buildOptions(),
+              _buildContentTabs(),
+            ],
+          ),
         ),
       ),
-    );
+    ));
   }
 
   Widget _buildProfileHeader() {
@@ -41,7 +49,7 @@ class ProfilePage extends StatelessWidget {
         children: [
           ClipOval(
             child: Image.network(
-              'https://via.placeholder.com/150',
+              'https://source.unsplash.com/random',
               width: 100,
               height: 100,
               fit: BoxFit.cover,
@@ -85,12 +93,13 @@ class ProfilePage extends StatelessWidget {
                   'Short bio about the user goes here.',
                 ),
                 const SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle profile edit
-                  },
-                  child: const Text('Edit Profile'),
-                ),
+                CustomGradientButton(
+                    child: const Text("Edit Profile"),
+                    onPressed: () {
+                      if (kDebugMode) {
+                        print("Edit Profile pressed!");
+                      }
+                    })
               ],
             ),
           ),
@@ -152,12 +161,11 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle setting daily goal
-                },
-                child: const Text('Set Goal'),
-              ),
+              CustomGradientButton(
+                  child: const Text("Set Goal"),
+                  onPressed: () {
+                    print("Set Goal pressed!");
+                  })
             ],
           ),
         ],

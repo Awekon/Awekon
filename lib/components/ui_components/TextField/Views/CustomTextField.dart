@@ -1,4 +1,5 @@
 import 'package:awekon/components/ui_components/TextField/Views/CustomPhoneField.dart';
+import 'package:awekon/core/Theme/Theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -6,7 +7,7 @@ class CustomTextField extends StatefulWidget {
   final TextInputType inputType;
   final IconData icon;
   final String hint;
-  final String label;
+  final String? label;
 
   const CustomTextField({
     super.key,
@@ -14,7 +15,7 @@ class CustomTextField extends StatefulWidget {
     required this.inputType,
     required this.icon,
     required this.hint,
-    required this.label,
+    this.label,
   });
 
   @override
@@ -80,7 +81,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
           labelText: widget.label,
           prefixIcon: Icon(widget.icon),
           hintText: widget.hint,
-          hintStyle: const TextStyle(color: Colors.grey),
+          filled: true,
+          hintStyle: TextStyle(
+            color: AppThemes.isDark(context)
+                ? Colors.grey.shade500
+                : Colors.grey.shade800,
+          ),
+          fillColor: AppThemes.isDark(context)
+              ? Colors.grey.shade900
+              : Colors.grey.shade200,
           suffixIcon: suffixWidget,
           contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           border: OutlineInputBorder(
@@ -96,7 +105,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(color: Colors.blueGrey, width: 1),
+            borderSide: BorderSide(
+                color: Theme.of(context).colorScheme.onTertiary, width: 1),
           ),
         ),
       ),

@@ -1,15 +1,13 @@
+import 'package:awekon/core/Theme/Theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class CustomPhoneField extends StatefulWidget {
   final TextEditingController controller;
   final String hint;
-  final String label;
+  final String? label;
   const CustomPhoneField(
-      {super.key,
-      required this.controller,
-      required this.hint,
-      required this.label});
+      {super.key, required this.controller, required this.hint, this.label});
 
   @override
   State<CustomPhoneField> createState() => _CustomPhoneFieldState();
@@ -27,7 +25,11 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
           decoration: InputDecoration(
             labelText: widget.label,
             hintText: widget.hint,
-            hintStyle: const TextStyle(color: Colors.grey),
+            hintStyle: TextStyle(color: Colors.grey.shade800),
+            filled: true,
+            fillColor: AppThemes.isDark(context)
+                ? Colors.grey.shade600
+                : Colors.grey.shade500,
             contentPadding: const EdgeInsets.symmetric(horizontal: 15),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
@@ -42,7 +44,8 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
-              borderSide: const BorderSide(color: Colors.blueGrey, width: 1),
+              borderSide: BorderSide(
+                  color: Theme.of(context).colorScheme.onTertiary, width: 1),
             ),
           ),
         ));
