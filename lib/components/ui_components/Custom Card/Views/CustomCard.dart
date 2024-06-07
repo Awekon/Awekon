@@ -75,9 +75,9 @@ class _CustomCardState extends State<CustomCard> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 2),
                   Text(
-                    truncateTitle(widget.description, 5),
+                    truncateTitle(widget.description, 3),
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 12,
