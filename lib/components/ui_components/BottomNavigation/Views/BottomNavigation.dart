@@ -83,6 +83,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
       ),
       endDrawer: const SideNavigationDrawer(),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blue,
         items: widget.items
             .map((item) => BottomNavigationBarItem(
                   icon: Icon(item.icon),
@@ -91,6 +92,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
             .toList(),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+        type: BottomNavigationBarType.shifting,
       ),
     );
   }

@@ -235,8 +235,7 @@ class _SignUpState extends State<SignUp> {
                             child: Text(
                               "Login",
                               style: TextStyle(
-                                  color:
-                                      Theme.of(context).colorScheme.secondary),
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                           )
                         ],

@@ -89,7 +89,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
           fillColor: AppThemes.isDark(context)
               ? Colors.grey.shade900
-              : Colors.grey.shade200,
+              : Colors.grey.shade300,
           suffixIcon: suffixWidget,
           contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           border: OutlineInputBorder(

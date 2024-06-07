@@ -19,7 +19,18 @@ class _ForYouListViewState extends State<ForYouListView> {
     // Simulate a network call
     await Future.delayed(Duration(seconds: 2));
     setState(() {
-      _categories = ['For You', 'Music', 'Movies', 'Sports', 'News', 'Gaming', 'Technology', 'Fashion', 'Travel', 'Education'];
+      _categories = [
+        'For You',
+        'Music',
+        'Movies',
+        'Sports',
+        'News',
+        'Gaming',
+        'Technology',
+        'Fashion',
+        'Travel',
+        'Education'
+      ];
     });
   }
 
@@ -31,37 +42,42 @@ class _ForYouListViewState extends State<ForYouListView> {
       child: _categories.isEmpty
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: _categories.length,
-        itemBuilder: (context, index) {
-          final category = _categories[index];
-          final isSelected = _selectedIndex == index;
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Chip(
-                label: Text(
-                  category,
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.bold,
+              scrollDirection: Axis.horizontal,
+              itemCount: _categories.length,
+              itemBuilder: (context, index) {
+                final category = _categories[index];
+                final isSelected = _selectedIndex == index;
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Chip(
+                      label: Text(
+                        category,
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold,
+                          color: isSelected
+                              ? Theme.of(context).colorScheme.onTertiary
+                              : Theme.of(context).colorScheme.onSecondary,
+                        ),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        side: const BorderSide(color: Colors.grey),
+                      ),
+                      backgroundColor: isSelected
+                          ? Theme.of(context).colorScheme.tertiary
+                          : Colors.transparent,
+                    ),
                   ),
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                  side: BorderSide(color: Colors.grey),
-                ),
-                backgroundColor: isSelected ? Colors.blue : Colors.transparent,
-              ),
+                );
+              },
             ),
-          );
-        },
-      ),
     );
   }
 }

@@ -192,12 +192,14 @@ class AppThemes {
   );
 
   static ColorScheme lightColorScheme = ColorScheme.light(
-    primary: const Color(0xFFECDDF5),
-    secondary: const Color(0xFF500243),
-    surface: const Color(0xFFF8E1FF),
+    // primary: const Color(0xFFECDDF5),
+    primary: const Color(0xFF570632),
+    // secondary: const Color(0xFF500243),
+    secondary: const Color(0xFFEFBFE5),
+    surface: const Color(0xFFEDD3F8),
     error: Colors.blueGrey,
     tertiary: SELECTED,
-    onPrimary: Colors.black,
+    onPrimary: Colors.white,
     onSecondary: Colors.black,
     onSurface: Colors.black,
     onError: Colors.white,
@@ -205,12 +207,14 @@ class AppThemes {
   );
 
   static ColorScheme darkColorScheme = ColorScheme.dark(
-      primary: const Color(0xFF7E094B),
-      secondary: const Color(0xFFEFBFE5),
-      surface: const Color(0xFF110210),
+      // primary: const Color(0xFF570632),
+      primary: const Color(0xFFECDDF5),
+      // secondary: const Color(0xFFEFBFE5),
+      secondary: const Color(0xFF500243),
+      surface: const Color(0xFF280219),
       error: Colors.white,
       tertiary: SELECTED_DARK,
-      onPrimary: Colors.white,
+      onPrimary: Colors.black,
       onSecondary: Colors.white,
       onError: Colors.blueGrey,
       onSurface: Colors.white,
@@ -218,10 +222,11 @@ class AppThemes {
 
   static final ThemeData lightTheme = ThemeData(
     colorScheme: lightColorScheme,
+    scaffoldBackgroundColor: const Color(0xFFFAF5FD),
     appBarTheme: AppBarTheme(
       color: lightColorScheme.surface,
       elevation: 0,
-      iconTheme: IconThemeData(color: lightColorScheme.secondary),
+      iconTheme: IconThemeData(color: lightColorScheme.primary),
     ),
     textTheme: CustomTextTheme.lightTextTheme,
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -233,17 +238,18 @@ class AppThemes {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: lightColorScheme.surface,
-      selectedItemColor: lightColorScheme.secondary,
-      unselectedItemColor: lightColorScheme.secondary.withOpacity(0.7),
+      selectedItemColor: lightColorScheme.primary,
+      unselectedItemColor: lightColorScheme.primary.withOpacity(0.7),
     ),
   );
 
   static final ThemeData darkTheme = ThemeData(
     colorScheme: darkColorScheme,
+    scaffoldBackgroundColor: const Color(0xFF050004),
     appBarTheme: AppBarTheme(
       color: darkColorScheme.surface,
       elevation: 0,
-      iconTheme: IconThemeData(color: darkColorScheme.secondary),
+      iconTheme: IconThemeData(color: darkColorScheme.primary),
     ),
     textTheme: CustomTextTheme.darkTextTheme,
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -255,8 +261,8 @@ class AppThemes {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: darkColorScheme.surface,
-      selectedItemColor: darkColorScheme.secondary,
-      unselectedItemColor: darkColorScheme.secondary.withOpacity(0.7),
+      selectedItemColor: darkColorScheme.primary,
+      unselectedItemColor: darkColorScheme.primary.withOpacity(0.7),
     ),
   );
 

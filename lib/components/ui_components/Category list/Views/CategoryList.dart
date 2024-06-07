@@ -54,7 +54,7 @@ class _CategoryChipState extends State<CategoryChip> {
         widget.icon,
         color: isSelected
             ? Theme.of(context).colorScheme.onTertiary
-            : Theme.of(context).colorScheme.onPrimary,
+            : Theme.of(context).colorScheme.onSecondary,
       ),
       label: Text(widget.label),
       onPressed: () {
@@ -64,11 +64,11 @@ class _CategoryChipState extends State<CategoryChip> {
       },
       backgroundColor: isSelected
           ? Theme.of(context).colorScheme.tertiary
-          : Theme.of(context).colorScheme.primary,
+          : Colors.transparent,
       labelStyle: TextStyle(
         color: isSelected
             ? Theme.of(context).colorScheme.onTertiary
-            : Theme.of(context).colorScheme.onPrimary,
+            : Theme.of(context).colorScheme.onSecondary,
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
