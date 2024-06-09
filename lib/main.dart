@@ -2,6 +2,7 @@ import 'package:awekon/config/size_config.dart';
 import 'package:awekon/core/Theme/Theme.dart';
 import 'package:awekon/screens/SlashScreen/Veiws/splashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Import this package
 import 'package:provider/provider.dart';
 
 void main() {
@@ -21,6 +22,14 @@ class MyApp extends StatelessWidget {
     SizeConfig.init(context);
     return Consumer<ThemeModeNotifier>(
       builder: (_, themeModeNotifier, __) {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+            statusBarColor: AppThemes.isDark(context)
+                ? AppThemes.darkColorScheme.surface
+                : AppThemes.lightColorScheme.surface,
+            statusBarIconBrightness: AppThemes.isDark(context)
+                ? Brightness.light
+                : Brightness.dark));
+
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           themeMode: themeModeNotifier.themeMode,

@@ -1,7 +1,6 @@
 import 'package:awekon/components/ui_components/CustomButton/CustomGradientButton.dart';
 import 'package:awekon/config/SharedPreference.dart';
 import 'package:awekon/config/size_config.dart';
-import 'package:awekon/core/constants/SharedPreferenceConstants.dart';
 import 'package:awekon/screens/SignUp/Views/SignUp.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -36,18 +35,6 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       'image': 'assets/images/onboarding3.jpeg',
     },
   ];
-
-  @override
-  void initState() {
-    super.initState();
-    _checkOnboardingStatus();
-  }
-
-  Future<void> _checkOnboardingStatus() async {
-    if (await SharedPreferencesHelper.getValue<bool>(onBoardKey) == true) {
-      _navigateToHome();
-    }
-  }
 
   Future<void> _completeOnboarding() async {
     await SharedPreferencesHelper.setValue<bool>('onboardingCompleted', true);

@@ -58,16 +58,18 @@ class _BottomNavigationState extends State<BottomNavigation> {
     ];
 
     List<Widget> tabContents = widget.items.map((item) {
-      return NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return [
-            CustomSliverAppBar(
-              title: appbarTitle,
-              actions: actions,
-            ),
-          ];
-        },
-        body: SafeArea(child: item.screen),
+      return SafeArea(
+        child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return [
+              CustomSliverAppBar(
+                title: appbarTitle,
+                actions: actions,
+              ),
+            ];
+          },
+          body: item.screen,
+        ),
       );
     }).toList();
 

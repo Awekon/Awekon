@@ -20,22 +20,24 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: NestedScrollView(
-      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-        return [
-          const CustomSliverAppBar(title: Text("Profile")),
-        ];
-      },
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              _buildProfileHeader(),
-              _buildProfileStats(),
-              _buildDailyGoal(),
-              _buildOptions(),
-              _buildContentTabs(),
-            ],
+        body: SafeArea(
+      child: NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return [
+            const CustomSliverAppBar(title: Text("Profile")),
+          ];
+        },
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildProfileHeader(),
+                _buildProfileStats(),
+                _buildDailyGoal(),
+                _buildOptions(),
+                _buildContentTabs(),
+              ],
+            ),
           ),
         ),
       ),
