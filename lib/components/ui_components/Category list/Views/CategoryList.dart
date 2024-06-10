@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {
+  const CategoryList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Column(
@@ -37,8 +39,7 @@ class CategoryChip extends StatefulWidget {
   final String label;
   final IconData icon;
 
-  const CategoryChip({Key? key, required this.label, required this.icon})
-      : super(key: key);
+  const CategoryChip({super.key, required this.label, required this.icon});
 
   @override
   _CategoryChipState createState() => _CategoryChipState();

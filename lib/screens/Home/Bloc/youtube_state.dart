@@ -29,8 +29,7 @@ class YoutubeError extends YoutubeState {
 }
 
 class YoutubeLoadingMore extends YoutubeLoaded {
-  YoutubeLoadingMore({required YouTubeSearchListResponse response})
-      : super(response: response);
+  YoutubeLoadingMore({required super.response});
 
   @override
   List<YouTubeSearchListResponse> get props => [response];

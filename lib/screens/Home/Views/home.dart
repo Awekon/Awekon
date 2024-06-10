@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../components/ui_components/Trending Carousel/Views/carousel.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              ForYouListView(), // Adding the For You list view here
+              const ForYouListView(), // Adding the For You list view here
               SizedBox(height: 0.02 * MediaQuery.of(context).size.height),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.0),
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
-              Center(child: TrendingCarousel()),
+              const Center(child: TrendingCarousel()),
               SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
               BlocProvider(
                 create: (context) => _youtubeCubit,

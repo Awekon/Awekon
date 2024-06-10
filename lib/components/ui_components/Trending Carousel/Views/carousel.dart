@@ -11,6 +11,8 @@ class TrendingCarousel extends StatelessWidget {
     TrendingItem('Silence', 'Listen to the sound of silence', 'assets/images/sample/img_3.png', 'Ava Morgan'),
   ];
 
+  const TrendingCarousel({super.key});
+
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(

@@ -8,12 +8,12 @@ class BookCardCollection extends StatelessWidget {
   final String about;
 
   const BookCardCollection({
-    Key? key,
+    super.key,
     required this.imageUrl,
     required this.title,
     required this.author,
     required this.about,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

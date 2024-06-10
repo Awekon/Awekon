@@ -155,8 +155,8 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
                         horizontal: 5 * SizeConfig.blockSizeHorizontal,
                         vertical: 10 * SizeConfig.blockSizeVertical),
                     child: CustomGradientButton(
-                      child: Text("Continue"),
                       onPressed: _completeOnboarding,
+                      child: const Text("Continue"),
                     )),
               ),
           ],
