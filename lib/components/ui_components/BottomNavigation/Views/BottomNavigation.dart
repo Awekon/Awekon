@@ -1,6 +1,7 @@
 import 'package:awekon/components/ui_components/CustomAppBar/CustomSilverAppBar.dart';
 import 'package:awekon/components/ui_components/SideNavigationBar/Views/SideNavigation.dart';
 import 'package:awekon/core/NavigationItem/BottomNavigationItemClassifier.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -84,17 +85,19 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
       ),
       endDrawer: const SideNavigationDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue,
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        color: Theme.of(context).colorScheme.surface,
+        animationDuration: const Duration(milliseconds: 350),
         items: widget.items
-            .map((item) => BottomNavigationBarItem(
-                  icon: Icon(item.icon),
-                  label: item.label,
-                ))
+            .map((item) => Icon(
+          item.icon,
+          size: 30, // Adjust icon size as needed
+        ))
             .toList(),
-        currentIndex: _selectedIndex,
+        index: _selectedIndex,
         onTap: _onItemTapped,
-        type: BottomNavigationBarType.shifting,
+        height: 60,
       ),
     );
   }

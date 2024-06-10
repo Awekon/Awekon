@@ -261,7 +261,7 @@ class AppThemes {
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: darkColorScheme.surface,
-      selectedItemColor: darkColorScheme.primary,
+      selectedItemColor: lightColorScheme.primary,
       unselectedItemColor: darkColorScheme.primary.withOpacity(0.7),
     ),
   );
