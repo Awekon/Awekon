@@ -1,8 +1,9 @@
 import 'package:awekon/components/ui_components/Collections%20of%20you%20Horizontal%20Scroll/Views/BookCardCollection.dart';
 import 'package:flutter/material.dart';
-import 'BookCardCollection.dart';
 
 class HorizontalBookListCollection extends StatelessWidget {
+  const HorizontalBookListCollection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(

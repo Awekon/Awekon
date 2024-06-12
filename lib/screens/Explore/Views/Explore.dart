@@ -15,7 +15,7 @@ class Explore extends StatefulWidget {
 class _ExploreState extends State<Explore> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController _searchController = TextEditingController();
+    TextEditingController searchController = TextEditingController();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -25,23 +25,23 @@ class _ExploreState extends State<Explore> {
             SizedBox(height: 0.02 * MediaQuery.of(context).size.height),
             Center(
                 child: CustomSearchBar(
-                    controller: _searchController,
+                    controller: searchController,
                     hint: 'Title, author, host, or topic')),
             SizedBox(height: 0.03 * MediaQuery.of(context).size.height),
-            CategoryList(),
+            const CategoryList(),
             SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
             const Divider(
               color: Colors.white54,
             ),
-            HorizontalBookListNew(),
+            const HorizontalBookListNew(),
             const Divider(
               color: Colors.white54,
             ),
-            HorizontalBookListPopular(),
+            const HorizontalBookListPopular(),
             const Divider(
               color: Colors.white54,
             ),
-            HorizontalBookListCollection(),
+            const HorizontalBookListCollection(),
             const Divider(
               color: Colors.white54,
             )

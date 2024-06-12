@@ -3,7 +3,6 @@ import 'package:awekon/screens/Explore/Views/Explore.dart';
 import 'package:awekon/screens/Glimpse/Views/Glimps.dart';
 import 'package:awekon/screens/Home/Views/home.dart';
 import 'package:awekon/screens/Library/Views/Library.dart';
-import 'package:awekon/screens/Settings/Views/Settings.dart';
 import 'package:awekon/screens/Upload/Views/Upload.dart';
 import 'package:flutter/material.dart';
 

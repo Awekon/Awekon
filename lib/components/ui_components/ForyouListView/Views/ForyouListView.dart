@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ForYouListView extends StatefulWidget {
+  const ForYouListView({super.key});
+
   @override
   _ForYouListViewState createState() => _ForYouListViewState();
 }
@@ -17,7 +19,7 @@ class _ForYouListViewState extends State<ForYouListView> {
 
   Future<void> _fetchCategories() async {
     // Simulate a network call
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     setState(() {
       _categories = [
         'For You',
@@ -37,10 +39,10 @@ class _ForYouListViewState extends State<ForYouListView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       height: 60.0,
       child: _categories.isEmpty
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: _categories.length,
@@ -54,7 +56,7 @@ class _ForYouListViewState extends State<ForYouListView> {
                     });
                   },
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Chip(
                       label: Text(
                         category,

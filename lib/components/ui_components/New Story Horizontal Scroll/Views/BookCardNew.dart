@@ -6,11 +6,11 @@ class BookCardNew extends StatelessWidget {
   final String author;
 
   const BookCardNew({
-    Key? key,
+    super.key,
     required this.imageUrl,
     required this.title,
     required this.author,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

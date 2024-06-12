@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'BookCardPopular.dart';
 
 class HorizontalBookListPopular extends StatelessWidget {
+  const HorizontalBookListPopular({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
