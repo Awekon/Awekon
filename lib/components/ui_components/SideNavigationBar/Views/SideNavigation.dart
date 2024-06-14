@@ -22,7 +22,7 @@ class SideNavigationDrawer extends StatelessWidget {
                     height: 60,
                     width: 60,
                     child: Image(
-                      image: AssetImage('assets/icons/profile_icon.jpeg'),
+                      image: AssetImage("assets/images/profile_icon.jpeg"),
                       fit: BoxFit.cover,
                     ),
                   ),
