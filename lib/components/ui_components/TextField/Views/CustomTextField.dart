@@ -37,8 +37,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
     if (widget.inputType == TextInputType.visiblePassword) {
       suffixWidget = IconButton(
         icon: isVisible
-            ? const Icon(Icons.visibility_outlined)
-            : const Icon(Icons.visibility_off_rounded),
+            ? const Icon(Icons.visibility_off_outlined)
+            : const Icon(Icons.visibility_outlined),
         onPressed: () {
           setState(() {
             isVisible = !(isVisible);

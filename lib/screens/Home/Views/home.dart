@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
     super.initState();
     // Initialize the YoutubeCubit and call the fetch function with a random query
     _youtubeCubit = YoutubeCubit(YouTubeRepository());
-    _youtubeCubit.fetchYoutubeVideos(query); // Pass any random query here
+    // _youtubeCubit.fetchYoutubeVideos(query); // Pass any random query here
   }
 
   Future<void> _refresh() async {
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
-              const Center(child: TrendingCarousel()),
+              Center(child: TrendingCarousel()),
               SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
               BlocProvider(
                 create: (context) => _youtubeCubit,

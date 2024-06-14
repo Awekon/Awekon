@@ -74,6 +74,20 @@ class _BottomNavigationState extends State<BottomNavigation> {
       );
     }).toList();
 
+    List<Widget> bottomNavBarItems = widget.items.map((item) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            item.icon,
+            size: 30,
+          ),
+          Text(item.label), // Label for the item
+        ],
+      );
+    }).toList();
+
     return Scaffold(
       key: _scaffoldKey,
       body: SizedBox(
@@ -90,10 +104,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
         color: Theme.of(context).colorScheme.surface,
         animationDuration: const Duration(milliseconds: 350),
         items: widget.items
-            .map((item) => Icon(
-          item.icon,
-          size: 30, // Adjust icon size as needed
-        ))
+            .map(
+              (item) => Icon(
+                item.icon,
+                size: 30, // Adjust icon size as needed
+              ),
+            )
             .toList(),
         index: _selectedIndex,
         onTap: _onItemTapped,

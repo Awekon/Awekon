@@ -1,5 +1,6 @@
-import 'package:awekon/screens/Profile/Views/ProfilePage.dart'; // Adjust the import according to your project structure
+import 'package:awekon/core/constants/SystemNavigationConstant.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SideNavigationDrawer extends StatelessWidget {
   const SideNavigationDrawer({super.key});
@@ -19,7 +20,12 @@ class SideNavigationDrawer extends StatelessWidget {
                   CircleAvatar(
                     radius: 0.1 * MediaQuery.of(context).size.width,
                     backgroundImage: const NetworkImage(
-                        "https://source.unsplash.com/random"),
+                      'https://source.unsplash.com/person',
+                    ),
+                    onBackgroundImageError:
+                        (Object error, StackTrace? stackTrace) {
+                      // Handle image loading error
+                    },
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -42,10 +48,7 @@ class SideNavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.account_circle),
             title: const Text('Profile'),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfilePage()),
-              );
+              Get.toNamed(profileRoute);
             },
           ),
           ListTile(

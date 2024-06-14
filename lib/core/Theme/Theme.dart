@@ -236,11 +236,11 @@ class AppThemes {
         foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
       ),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: lightColorScheme.surface,
-      selectedItemColor: lightColorScheme.primary,
-      unselectedItemColor: lightColorScheme.primary.withOpacity(0.7),
-    ),
+    // bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    //   backgroundColor: lightColorScheme.surface,
+    //   selectedItemColor: lightColorScheme.primary,
+    //   unselectedItemColor: lightColorScheme.primary.withOpacity(0.7),
+    // ),
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -259,11 +259,11 @@ class AppThemes {
         foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
       ),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: darkColorScheme.surface,
-      selectedItemColor: lightColorScheme.primary,
-      unselectedItemColor: darkColorScheme.primary.withOpacity(0.7),
-    ),
+    // bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    //   backgroundColor: darkColorScheme.surface,
+    //   selectedItemColor: lightColorScheme.primary,
+    //   unselectedItemColor: darkColorScheme.primary.withOpacity(0.7),
+    // ),
   );
 
   static ThemeData getTheme(BuildContext context) {

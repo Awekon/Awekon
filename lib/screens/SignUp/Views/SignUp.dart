@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:awekon/components/ui_components/BottomNavigation/Views/BottomNavigation.dart';
 import 'package:awekon/components/ui_components/CustomButton/CustomGradientButton.dart';
 import 'package:awekon/components/ui_components/Loading/Bloc/loading_manager.dart';
 import 'package:awekon/components/ui_components/TextField/Views/CustomTextField.dart';
 import 'package:awekon/config/size_config.dart';
 import 'package:awekon/core/Theme/Theme.dart';
-import 'package:awekon/core/constants/BottomNavigationItems.dart';
+import 'package:awekon/core/constants/SystemNavigationConstant.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -72,9 +72,7 @@ class _SignUpState extends State<SignUp> {
   ];
   _navigateToHome() {
     LoadingManager.hideLoading(context);
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-      return BottomNavigation(items: bottomNavigationItems);
-    }));
+    Get.offAllNamed(homeActivityRoute);
   }
 
   signUpButtonFunction() {

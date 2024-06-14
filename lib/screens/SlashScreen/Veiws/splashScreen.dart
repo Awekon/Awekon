@@ -16,7 +16,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  late Widget NextScreen = const OnBoardingScreen();
+  late Widget nextScreen = const OnBoardingScreen();
+  late String lottieAsset = AppThemes.isDark(context)
+      ? "assets/animations/Awekon_dark.json"
+      : "assets/animations/Awekon_light.json";
 
   @override
   void initState() {
@@ -29,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         await SharedPreferencesHelper.getValue<bool>(onBoardKey) ?? false;
     if (onboardingCompleted) {
       setState(() {
-        NextScreen = const SignUp();
+        nextScreen = const SignUp();
       });
     }
   }
@@ -48,12 +51,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
     return Scaffold(
       body: AnimatedSplashScreen(
-        splash: Center(
-          child: LottieBuilder.asset(AppThemes.isDark(context)
-              ? "assets/animations/Awekon_dark.json"
-              : "assets/animations/Awekon_light.json"),
-        ),
-        nextScreen: NextScreen,
+        splash: Center(child: Lottie.asset(lottieAsset)),
+        nextScreen: nextScreen,
         splashIconSize: 400,
         splashTransition: SplashTransition.fadeTransition,
         duration: 3500,

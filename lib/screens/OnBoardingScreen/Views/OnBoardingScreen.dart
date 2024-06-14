@@ -1,8 +1,9 @@
 import 'package:awekon/components/ui_components/CustomButton/CustomGradientButton.dart';
 import 'package:awekon/config/SharedPreference.dart';
 import 'package:awekon/config/size_config.dart';
-import 'package:awekon/screens/SignUp/Views/SignUp.dart';
+import 'package:awekon/core/constants/SystemNavigationConstant.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -42,12 +43,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 
   void _navigateToHome() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SignUp(),
-      ),
-    );
+    Get.offAllNamed(singUpRoute);
   }
 
   @override
