@@ -1,5 +1,6 @@
-import 'package:awekon/screens/Profile/Views/ProfilePage.dart';
+import 'package:awekon/core/constants/SystemNavigationConstant.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SideNavigationDrawer extends StatelessWidget {
   const SideNavigationDrawer({super.key});
@@ -69,11 +70,7 @@ class SideNavigationDrawer extends StatelessWidget {
                   leading: const Icon(Icons.account_circle),
                   title: const Text('Profile'),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ProfilePage()),
-                    );
+                    Get.toNamed(profileRoute);
                   },
                 ),
                 ListTile(
