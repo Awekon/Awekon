@@ -109,7 +109,7 @@ class SideNavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
             onTap: () {
-              // Handle logout
+              Get.offAllNamed(singUpRoute);
             },
           ),
         ],
